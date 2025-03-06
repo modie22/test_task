@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "./store";
 import { Issue, IssuesState } from "../types";
 
 // Функція для отримання задач із GitHub API
