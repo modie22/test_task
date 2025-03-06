@@ -1,0 +1,77 @@
+/* App.css */
+
+/* Загальний контейнер Kanban-дошки */
+.kanban-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Введення URL репозиторію */
+  .repo-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Стилі для колонок Kanban */
+  .kanban-columns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .kanban-column {
+    flex: 1;
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    min-height: 300px;
+  }
+  
+  .kanban-column h2 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Стилі для карток задач */
+  .kanban-card {
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+  }
+  
+  .kanban-card a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .kanban-card:active {
+    cursor: grabbing;
+  }
+  
+  /* Стилі для інформації про репозиторій */
+  .repo-info {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .repo-info a {
+    display: block;
+    margin: 5px 0;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .repo-info a:hover {
+    text-decoration: underline;
+  }
+  
