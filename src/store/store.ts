@@ -1,5 +1,5 @@
-import { configureStore } from "@reduxjs/toolkit";
-import issuesReducer from "./issuesSlice.ts";
+import { configureStore } from '@reduxjs/toolkit';
+import issuesReducer from './issuesSlice.ts';
 
 export const store = configureStore({
   reducer: {

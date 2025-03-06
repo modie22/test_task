@@ -1,7 +1,5 @@
-
 import KanbanBoard from './KanbanBoard.tsx';
 export const App = () => {
-  
   return (
     <>
       <div style={{ padding: '20px' }}>
