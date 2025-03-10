@@ -14,7 +14,6 @@ const KanbanBoard: React.FC = () => {
   const [repoPath, setRepoPath] = useState('');
   const dispatch = useDispatch();
   const {loadStoredState } = useActions();
-  console.log(useActions())
   const { status, repoOwner, repoName } = useSelector(
     (state: RootState) => state.issues
   );
@@ -28,7 +27,7 @@ const KanbanBoard: React.FC = () => {
       }
       dispatch(fetchIssues(repoPath));
     }
-  }, [repoPath, dispatch, storedState]);
+  }, [repoPath, dispatch, storedState, loadStoredState]);
 
   const handleLoad = () => {
     if (repoUrl.includes('github.com/')) {
