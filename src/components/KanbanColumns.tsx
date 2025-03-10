@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import './App.css';
-import { RootState } from '../store/store.ts';
 import { Issue } from '../types.ts';
 import { useActions } from 'hooks/useActions.js';
 import { selectIssues } from 'store/selectors.ts';

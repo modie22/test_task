@@ -6,7 +6,6 @@ import 'antd/dist/reset.css';
 import './App.css';
 import KanbanColumns from './KanbanColumns.tsx';
 import RepoInfo from './RepoInfo.tsx';
-//import { RootState } from '../store/store.ts';
 import { useActions } from '../hooks/useActions.js';
 import {
   selectRepoName,
