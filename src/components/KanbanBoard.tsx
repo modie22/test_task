@@ -1,28 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchIssues} from '../store/issuesSlice.ts';
+import { fetchIssues } from '../store/issuesSlice.ts';
 import { Input, Button, Spin } from 'antd';
 import 'antd/dist/reset.css';
 import './App.css';
 import KanbanColumns from './KanbanColumns.tsx';
 import RepoInfo from './RepoInfo.tsx';
-import { RootState } from '../store/store.ts';
+//import { RootState } from '../store/store.ts';
 import { useActions } from '../hooks/useActions.js';
+import {
+  selectRepoName,
+  selectRepoOwner,
+  selectStatus,
+} from '../store/selectors.ts';
 
 const KanbanBoard: React.FC = () => {
   const [repoUrl, setRepoUrl] = useState('');
   const [repoPath, setRepoPath] = useState('');
+
   const dispatch = useDispatch();
-  const {loadStoredState } = useActions();
-  const { status, repoOwner, repoName } = useSelector(
-    (state: RootState) => state.issues
-  );
+  const { loadStoredState } = useActions();
+
+  const status = useSelector(selectStatus);
+  const repoOwner = useSelector(selectRepoOwner);
+  const repoName = useSelector(selectRepoName);
+
   const storedState = localStorage.getItem(repoPath);
 
   useEffect(() => {
     if (repoPath) {
       if (storedState) {
-        loadStoredState(repoPath) 
+        loadStoredState(repoPath);
         return;
       }
       dispatch(fetchIssues(repoPath));
