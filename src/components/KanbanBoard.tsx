@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchIssues, loadStoredState } from '../store/issuesSlice.ts';
+import { fetchIssues} from '../store/issuesSlice.ts';
 import { Input, Button, Spin } from 'antd';
 import 'antd/dist/reset.css';
 import './App.css';
 import KanbanColumns from './KanbanColumns.tsx';
 import RepoInfo from './RepoInfo.tsx';
 import { RootState } from '../store/store.ts';
+import { useActions } from '../hooks/useActions.js';
 
 const KanbanBoard: React.FC = () => {
   const [repoUrl, setRepoUrl] = useState('');
   const [repoPath, setRepoPath] = useState('');
   const dispatch = useDispatch();
+  const {loadStoredState } = useActions();
+  console.log(useActions())
   const { status, repoOwner, repoName } = useSelector(
     (state: RootState) => state.issues
   );
@@ -20,7 +23,7 @@ const KanbanBoard: React.FC = () => {
   useEffect(() => {
     if (repoPath) {
       if (storedState) {
-        dispatch(loadStoredState(repoPath));
+        loadStoredState(repoPath) 
         return;
       }
       dispatch(fetchIssues(repoPath));

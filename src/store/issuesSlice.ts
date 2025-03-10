@@ -74,4 +74,5 @@ const issuesSlice = createSlice({
 });
 
 export const { moveIssue, loadStoredState } = issuesSlice.actions;
+export const { actions } = issuesSlice;
 export default issuesSlice.reducer;

@@ -1,18 +1,17 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { moveIssue } from '../store/issuesSlice.ts';
+import {  useSelector } from 'react-redux';
 import './App.css';
 import { RootState } from '../store/store.ts';
-import { Issue } from '../types';
+import { Issue } from '../types.ts';
+import { useActions } from 'hooks/useActions.js';
 
 interface KanbanColumnsProps {
   repoPath: string;
 }
 
 const KanbanColumns: React.FC<KanbanColumnsProps> = ({ repoPath }) => {
-  const dispatch = useDispatch();
   const { issues } = useSelector((state: RootState) => state.issues);
-
+  const { moveIssue } = useActions();
   const handleDragStart = (
     e: React.DragEvent<HTMLDivElement>,
     issue: Issue,
@@ -29,14 +28,14 @@ const KanbanColumns: React.FC<KanbanColumnsProps> = ({ repoPath }) => {
     if (dataString) {
       try {
         const data = JSON.parse(dataString);
-        dispatch(
+       
           moveIssue({
             source: data.sourceColumn,
             destination: targetColumn,
             issue: data.issue,
             repoPath,
           })
-        );
+      
       } catch (error) {
         console.error('Помилка парсингу JSON', error);
       }
